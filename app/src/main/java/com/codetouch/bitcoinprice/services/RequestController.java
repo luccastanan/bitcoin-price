@@ -1,10 +1,12 @@
-package com.codetouch.bitcoinprice;
+package com.codetouch.bitcoinprice.services;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.codetouch.bitcoinprice.interfaces.IServiceRequest;
+import com.codetouch.bitcoinprice.AppController;
+import com.codetouch.bitcoinprice.Constants;
+import com.codetouch.bitcoinprice.interfaces.IRequest;
 
 import org.json.JSONObject;
 
@@ -12,7 +14,7 @@ import org.json.JSONObject;
  * Created by lucca on 2/7/2018.
  */
 
-public class APIController implements IServiceRequest {
+public class RequestController implements IRequest {
 
     @Override
     public void get(String path, JSONObject params, final OnRequestResult onRequestResult) {

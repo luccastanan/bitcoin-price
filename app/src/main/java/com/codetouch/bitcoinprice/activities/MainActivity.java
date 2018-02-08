@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.codetouch.bitcoinprice.APIController;
+import com.codetouch.bitcoinprice.services.RequestController;
 import com.codetouch.bitcoinprice.Constants;
 import com.codetouch.bitcoinprice.R;
 
@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void requestValue() {
         pgbRequest.setVisibility(View.VISIBLE);
-        APIController apiController = new APIController();
-        apiController.get(Constants.URL.api, null, new APIController.OnRequestResult() {
+        RequestController requestController = new RequestController();
+        requestController.get(Constants.URL.api, null, new RequestController.OnRequestResult() {
             @Override
             public void onResponse(JSONObject jsonObject) {
                 if (jsonObject == null)
