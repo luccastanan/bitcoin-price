@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.codetouch.bitcoinprice.database.DatabaseHelper;
 
 /**
  * Created by lucca on 2/7/2018.
@@ -23,6 +24,7 @@ public class AppController extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+        DatabaseHelper.getInstance(this);
     }
 
     public static synchronized AppController getInstance() {

@@ -32,7 +32,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        String PRICE = "CREATE TABLE \"price\" ( " +
+                "`id` INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "`min_value` REAL, " +
+                "`max_value` REAL, " +
+                "`current_value` REAL, " +
+                "`date` NUMERIC )";
+        db.execSQL(PRICE);
     }
 
     @Override
