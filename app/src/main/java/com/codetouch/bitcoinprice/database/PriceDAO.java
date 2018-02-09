@@ -26,7 +26,7 @@ public class PriceDAO extends BaseDAO implements IBaseDAO<Price> {
         values.put("min_value", price.getMin());
         values.put("max_value", price.getMax());
         values.put("current_value", price.getCurrent());
-        values.put("date", price.getDate().getTime());
+        values.put("date", price.getDate());
         return save(values);
     }
 
@@ -39,7 +39,7 @@ public class PriceDAO extends BaseDAO implements IBaseDAO<Price> {
                     cursor.getDouble(cursor.getColumnIndex("min_value")),
                     cursor.getDouble(cursor.getColumnIndex("max_value")),
                     cursor.getDouble(cursor.getColumnIndex("current_value")),
-                    new Date(cursor.getLong(cursor.getColumnIndex("date"))));
+                    cursor.getLong(cursor.getColumnIndex("date")));
         }
         cursor.close();
         return price;

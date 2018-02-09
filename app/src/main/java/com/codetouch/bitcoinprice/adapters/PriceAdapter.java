@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.codetouch.bitcoinprice.R;
-import com.codetouch.bitcoinprice.Utilities;
+import com.codetouch.bitcoinprice.util.Utilities;
 import com.codetouch.bitcoinprice.models.Price;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.MyViewHolder
         holder.txvValue.setText(String.valueOf(price.getCurrent()));
         holder.txvMin.setText(Utilities.formatReal(price.getMin()));
         holder.txvMax.setText(Utilities.formatReal(price.getMax()));
-        holder.txvDate.setText(Utilities.timeToDate(price.getDate().getTime()));
+        holder.txvDate.setText(Utilities.timeToDate(price.getDate()));
     }
 
     @Override

@@ -6,4 +6,6 @@
 
     <color name="green">#7AE256</color>
     <color name="red">#E74D2B</color>
+    <color name="colorPrimaryDarkT">#c7263238</color>
+
 </resources>

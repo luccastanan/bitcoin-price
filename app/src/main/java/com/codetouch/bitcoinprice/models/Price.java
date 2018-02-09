@@ -15,14 +15,14 @@ public class Price {
     private double min;
     private double max;
     private double current;
-    private Date date;
+    private long date;
 
     /**
      * @param _min     Menor valor
      * @param _max     Maior valor
      * @param _current Valor atual
      */
-    public Price(int _id, double _min, double _max, double _current, Date _date) {
+    public Price(int _id, double _min, double _max, double _current, long _date) {
         this.id = _id;
         this.min = _min;
         this.max = _max;
@@ -62,11 +62,11 @@ public class Price {
         this.current = current;
     }
 
-    public Date getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
@@ -77,7 +77,7 @@ public class Price {
                     jsonTicker.getDouble("low"),
                     jsonTicker.getDouble("high"),
                     jsonTicker.getDouble("last"),
-                    new Date(jsonTicker.getLong("date")));
+                    jsonTicker.getLong("date"));
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
@@ -86,6 +86,6 @@ public class Price {
 
     @Override
     public boolean equals(Object obj) {
-        return ((Price) obj).getDate().getTime() == this.getDate().getTime();
+        return ((Price) obj).getCurrent() == this.getCurrent() && ((Price) obj).getDate() == this.getDate();
     }
 }

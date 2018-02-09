@@ -1,4 +1,4 @@
-package com.codetouch.bitcoinprice;
+package com.codetouch.bitcoinprice.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,7 +11,7 @@ import java.util.Locale;
 public class Utilities {
 
     public static String timeToDate(long value) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss dd/MM", Locale.getDefault());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss MM/dd", Locale.getDefault());
         return simpleDateFormat.format(new Date(value));
     }
 

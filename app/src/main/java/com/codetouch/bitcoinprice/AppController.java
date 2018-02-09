@@ -2,6 +2,7 @@ package com.codetouch.bitcoinprice;
 
 import android.app.Application;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -40,11 +41,11 @@ public class AppController extends Application {
     public <T> void addToRequestQueue(Request<T> request, String tag) {
         request.setTag(TextUtils.isEmpty(tag) ? TAG : tag);
         getRequestQueue().add(request);
+        Log.i(tag, request.getUrl());
     }
 
     public <T> void addToRequestQueue(Request<T> request) {
-        request.setTag(TAG);
-        getRequestQueue().add(request);
+        addToRequestQueue(request, "");
     }
 
     public void cancelPendingRequest(Object tag) {
