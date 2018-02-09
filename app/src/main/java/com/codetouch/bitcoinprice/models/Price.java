@@ -83,4 +83,9 @@ public class Price {
             return null;
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return ((Price) obj).getDate().getTime() == this.getDate().getTime();
+    }
 }

@@ -11,7 +11,11 @@ import java.util.Locale;
 public class Utilities {
 
     public static String timeToDate(long value) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy", Locale.getDefault());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss dd/MM", Locale.getDefault());
         return simpleDateFormat.format(new Date(value));
+    }
+
+    public static String formatReal(Double value) {
+        return String.format("R$%s", value);
     }
 }

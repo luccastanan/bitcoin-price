@@ -6,7 +6,9 @@ import android.database.Cursor;
 import com.codetouch.bitcoinprice.interfaces.IBaseDAO;
 import com.codetouch.bitcoinprice.models.Price;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by luccasgaluppotanan on 2/8/18.
@@ -24,6 +26,7 @@ public class PriceDAO extends BaseDAO implements IBaseDAO<Price> {
         values.put("min_value", price.getMin());
         values.put("max_value", price.getMax());
         values.put("current_value", price.getCurrent());
+        values.put("date", price.getDate().getTime());
         return save(values);
     }
 
@@ -63,5 +66,15 @@ public class PriceDAO extends BaseDAO implements IBaseDAO<Price> {
             price = select(cursor.getInt(0));
         }
         return price;
+    }
+
+    public List<Price> selectAll() {
+        Cursor cursor = getDb().rawQuery("SELECT id FROM price ORDER BY date", null);
+        List<Price> priceList = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            Price price = select(cursor.getInt(0));
+            priceList.add(price);
+        }
+        return priceList;
     }
 }

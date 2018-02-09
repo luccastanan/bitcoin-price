@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Bitcoin Price</string>
     <string name="request_failed">Falha ao buscar valor</string>
+    <string name="coin">R$</string>
 </resources>
