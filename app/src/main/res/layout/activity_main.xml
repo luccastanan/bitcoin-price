@@ -123,13 +123,13 @@
                             style="@style/Coin"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="16sp" />
+                            android:textSize="24sp" />
 
                         <TextView
                             android:id="@+id/txv_value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="4dp"
                             android:gravity="center_vertical"
                             android:text="123456"
                             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
@@ -173,7 +173,7 @@
                     android:id="@+id/txv_min"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="4dp"
                     android:background="@drawable/back_min"
                     android:text="1"
                     app:layout_constraintBaseline_toBaselineOf="@+id/txv_max"

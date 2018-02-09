@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void newPrice(Price price) {
-        if (price != null && !priceList.contains(price)) {
+        if (price != null && !priceDAO.exist(price.getDate().getTime())) {
             price.setId((int) priceDAO.insert(price));
             priceList.add(price);
             loadPrices();

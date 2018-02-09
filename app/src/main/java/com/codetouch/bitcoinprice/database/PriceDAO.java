@@ -65,6 +65,7 @@ public class PriceDAO extends BaseDAO implements IBaseDAO<Price> {
         if (cursor.moveToFirst()) {
             price = select(cursor.getInt(0));
         }
+        cursor.close();
         return price;
     }
 
@@ -75,6 +76,14 @@ public class PriceDAO extends BaseDAO implements IBaseDAO<Price> {
             Price price = select(cursor.getInt(0));
             priceList.add(price);
         }
+        cursor.close();
         return priceList;
+    }
+
+    public boolean exist(long date) {
+        Cursor cursor = getDb().rawQuery("SELECT id FROM price WHERE date = ?", new String[]{String.valueOf(date)});
+        boolean result = cursor.moveToFirst();
+        cursor.close();
+        return result;
     }
 }
